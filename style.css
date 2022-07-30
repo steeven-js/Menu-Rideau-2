@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Quicksand:wght@300;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: lightblue;
+}
+
+/* #region Section*/
+
+.home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #region Le menu Rideau */
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    color: f1f1f1;
+    font-weight: 100;
+
+    margin-bottom: 250px;
+}
+
+/* #endregion Le menu Rideau */
+
+/* #endregion Section*/
+
+/* #region nav-toggler*/
+
+.nav-toggler { /* Il s'agit du bouton*/
+    position: fixed;
+    z-index: 10;
+    top: 30px;
+    right: 50px;
+    height: 50px;
+    width: 50px;
+    /* border-radius: 50%; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent; /* Création des lignes ensuite*/
+}
+
+/* #endregion nav-toggler*/
+
+/* #region line*/
+
+.line {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px; /* La ligne est crée épaisseur 2px*/
+    background: #f1f1f1;
+
+    /* Effet transition*/
+    transition: transform 0.3s ease-out, opacity 0.1s ease-out;
+     
+}
+
+.l1 { /* Ligne du haut*/
+    transform: translateY(-10px);
+}
+
+.l3 { /* Ligne du bas*/
+    transform: translateY(10px);
+}
+
+/* #endregion line*/
+
+/* #region Classe active Quand on click dessus*/
+
+/* Active = Au click*/
+
+.l1.active {
+    transform: translateY(0px) rotate(135deg); /* Au click, il revient au début (0px) mais avec une rotation de (135deg)*/
+}
+
+.l2.active  {
+    opacity: 0;
+}
+
+.l3.active  {
+    transform: translateY(0px) rotate(-135deg); /* Au click, il revient au début (0px) mais avec une rotation de (-135deg)*/
+}
+
+/* #endregion Classe active Quand on click dessus*/
+
+/* #region nav*/
+
+nav {
+    position: fixed;
+    width: 50vw;
+    min-height: 100vh;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: lightblue;
+    border-left: 1px solid #cfcfcf;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.73, 0.11, 0.67, 0.84); /* transition plus sexy*/
+}
+
+nav.active {
+    transform: translate(0);
+}
+
+nav a {
+    font-family: Quicksand, sans-serif;
+    color: #f1f1f1;
+    font-size: 20px;
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+}
+
+/* #endregion nav*/
